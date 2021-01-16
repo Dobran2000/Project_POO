@@ -1,0 +1,5 @@
+Popescu,Ionel,13,Lisabona,trenulet*petarde,albastru,bun
+Leustean,Alexandra,10,Elvas,ursulet*trenulet*carte,roz,bun
+Dafinescu,Nicolae,5,Felgueiras,pistol*ursulet*penare,albastru,rau
+Arabu,Florin,14,Gondomar,lego*trenulet*petarde,albastru,bun
+Ceausescu,Ionut,9,Lagoa,ursulet*trenulet,albastru,bun

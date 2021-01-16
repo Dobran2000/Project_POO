@@ -1,0 +1,11 @@
+trenulet,30
+masinuta,50
+cutitas,100
+sabie,20
+petarde,78
+ursulet,40
+lego,80
+carte,10
+gasca,45
+penare,90
+pistol,10
