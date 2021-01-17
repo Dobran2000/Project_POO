@@ -1,5 +1,6 @@
 ﻿#include<vector>
 #include<sstream>
+#include<string>
 #include<fstream>
 #include<stdlib.h>
 #include<iostream>
@@ -103,7 +104,8 @@ int Mos_Craciun::minKey(int key[], bool mstSet[])
 
 	return min_index;
 }
-// O func?ie utilitarã pentru a imprima fi?ierul construit stocat în pãrinte []
+// O functie utilitarã pentru a imprima fisierul construit stocat în pãrinte []
+//functia care determina costul minim la drumului
 void Mos_Craciun::printMST(int parent[], int graph[V][V])
 {
 	int suma = 0;
@@ -125,7 +127,7 @@ void Mos_Craciun::printMST(int parent[], int graph[V][V])
 }
 
 
-// Func?ie pentru construirea si tipãrirea arborelui minim de acoperire pentru
+// Functie pentru construirea si tipãrirea arborelui minim de acoperire pentru
 // un grafic reprezentat folosind adiacenta
 // reprezentare matricialã
 void Mos_Craciun::primMST(int graph[V][V])
@@ -154,7 +156,7 @@ void Mos_Craciun::primMST(int graph[V][V])
 				parent[v] = u, key[v] = graph[u][v];
 		// graficul [u] [v] este diferit de zero numai pentru vârfurile adiacente ale m
 	   // mstSet [v] este fals pentru vârfurile care nu sunt încã incluse în MST
-	  // Actualiza?i cheia numai dacã graficul [u] [v] este mai mic decât cheia [v]
+	  // Actualizati cheia numai dacã graficul [u] [v] este mai mic decât cheia [v]
 	}
 	printMST(parent, graph);
 }
@@ -492,9 +494,8 @@ public:
 	void set_Lista(Elfi object);
 	void Ambalare();
 	void afisare();
-	void Ambalare(int nrBaieti, int nrFete)//polimorfism
-	{//determinarea numarul de ambalaje folosite pentru fete si baieti
-
+	void Ambalare(int nrBaieti, int nrFete)
+	{
 		cout << "Baietii-ambalaje albastre" << endl;
 		cout << "Fete-ambalaje roz" << endl;
 	}
@@ -552,8 +553,7 @@ private:
 	int numarAcadele = 0;
 	int numarCarbuni = 0;
 public:
-	friend class Elfi;
-	Doamna_Craciun();
+	 Doamna_Craciun();
 	~Doamna_Craciun();
 	void set_Lista_Doamna_Craciun(Elfi object)
 	{
@@ -586,7 +586,7 @@ int main()
 	bool open = true;
 	char choice;
 	int nrFete = 0, nrBaieti = 0;
-	//abstractizare
+	//abs
 	elfi.citire_inventar("Inventar.txt");
 	elfi.afisare_dorinte();
 	Mos_Craciun *mos2 = &elfi;
