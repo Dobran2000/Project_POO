@@ -7,7 +7,8 @@ using namespace std;
 #define V 6
 //Mos Craciun va putea extrage din fisierul dorinte scrisorile si datele despre copii
 class Mos_Craciun
-{private:
+{
+private:
 	vector<vector<string>> Lista_Dorinte;
 	vector<string> v;
 	int lines = 0;
@@ -23,7 +24,7 @@ public:
 	void printMST(int parent[], int graph[V][V]);
 	void primMST(int graph[V][V]);
 	void calculareDrum();
-	void afisare_dorinte();
+	virtual void afisare_dorinte();
 
 };
 Mos_Craciun::Mos_Craciun()
@@ -78,7 +79,7 @@ Exceptie:
 		cout << "Fisierul e gol" << endl;
 		goto Exceptie;
 	}
-   
+
 	in.close();
 }
 //afisarea cadourilor de copii
@@ -190,7 +191,7 @@ class Elfi : public Mos_Craciun
 	int contor2 = 0;
 	const char delim = '*';
 	string acadele;
-	vector<string> id_copil = { "bun","bun","rau","bun","bun"};
+	vector<string> id_copil = { "bun","bun","rau","bun","bun" };
 public:
 	friend class Doamna_Craciun;
 	Elfi();
@@ -206,7 +207,7 @@ public:
 	vector<string> Lista_Orase();
 	vector<vector<string>> COPIE;
 	vector<vector<string>> get_Copie();
-    int get_Acadele();
+	int get_Acadele();
 	int get_Carbuni();
 	string Lista_Jucarii;
 	vector<string> liste_finale_cadouri;
@@ -215,7 +216,7 @@ public:
 	void afisare_inventar();
 	vector<string> copie;
 	void tokenize(std::string const &str, const char delim, std::vector<std::string> &out);
-    vector<int> pozitii;
+	vector<int> pozitii;
 	vector<string> final;
 	string cadouri = "";
 };
@@ -241,7 +242,7 @@ void Elfi::tokenize(string const &str, const char delim, vector<string> &out)
 {
 	stringstream ss(str);
 	string s;
-	while (std::getline(ss, s, delim))	{
+	while (std::getline(ss, s, delim)) {
 		out.push_back(s);
 	}
 }
@@ -265,7 +266,7 @@ void Elfi::citire_inventar(string file)
 		}
 		this->Inventar.push_back(this->vec);
 	}
-  Exceptie2:
+Exceptie2:
 	try
 	{
 		if (lines_Inventar == 0)
@@ -590,7 +591,7 @@ int main()
 		cout << "Please enter your choice= ";
 		cin >> choice;
 		switch (choice) {
-		
+
 		case '1':
 			mosul.citire_csv("dorinte.txt");
 			mosul.afisare_dorinte();
@@ -637,5 +638,3 @@ int main()
 	}
 	return 0;
 }
-
-
