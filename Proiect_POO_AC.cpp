@@ -1,4 +1,4 @@
-#include<vector>
+Ôªø#include<vector>
 #include<sstream>
 #include<fstream>
 #include<stdlib.h>
@@ -103,7 +103,7 @@ int Mos_Craciun::minKey(int key[], bool mstSet[])
 
 	return min_index;
 }
-// O func?ie utilitar„ pentru a imprima fi?ierul construit stocat Ón p„rinte []
+// O func?ie utilitar√£ pentru a imprima fi?ierul construit stocat √Æn p√£rinte []
 void Mos_Craciun::printMST(int parent[], int graph[V][V])
 {
 	int suma = 0;
@@ -125,36 +125,36 @@ void Mos_Craciun::printMST(int parent[], int graph[V][V])
 }
 
 
-// Func?ie pentru construirea ?i tip„rirea arborelui minim de acoperire pentru
+// Func?ie pentru construirea ?i tip√£rirea arborelui minim de acoperire pentru
 // un grafic reprezentat folosind adiacen?a
-// reprezentare matricial„
+// reprezentare matricial√£
 void Mos_Craciun::primMST(int graph[V][V])
 {
 	int parent[V];// Matrice pentru a stoca arborele minim construit
-	int key[V];// Valori cheie utilizate pentru a alege marginea greut„?ii minime Ón t„ietur„
-	bool mstSet[V];//Pentru a reprezenta un set de v‚rfuri incluse Ón MST
+	int key[V];// Valori cheie utilizate pentru a alege marginea greut√£?ii minime √Æn t√£ietur√£
+	bool mstSet[V];//Pentru a reprezenta un set de v√¢rfuri incluse √Æn MST
 
 	for (int i = 0; i < V; i++)
 		key[i] = INT_MAX, mstSet[i] = false;//initializare chei ca infinit
 
-	key[0] = 0;//face?i tasta 0 astfel Ónc‚t acest v‚rf s„ fie ales ca primul v‚rf.
+	key[0] = 0;//face?i tasta 0 astfel √Ænc√¢t acest v√¢rf s√£ fie ales ca primul v√¢rf.
 	parent[0] = -1;
 
 	for (int count = 0; count < V - 1; count++)
 	{
-		// Alegem v‚rful cheii minime din
-		// set de v‚rfuri care nu sunt Ónc„ incluse Ón arborele minim
+		// Alegem v√¢rful cheii minime din
+		// set de v√¢rfuri care nu sunt √Ænc√£ incluse √Æn arborele minim
 		int u = minKey(key, mstSet);
-		// Ad„ugam v‚rful ales Ón setul arborele minim
+		// Ad√£ugam v√¢rful ales √Æn setul arborele minim
 		mstSet[u] = true;
 
 		for (int v = 0; v < V; v++)
 
 			if (graph[u][v] && mstSet[v] == false && graph[u][v] < key[v])
 				parent[v] = u, key[v] = graph[u][v];
-		// graficul [u] [v] este diferit de zero numai pentru v‚rfurile adiacente ale m
-	   // mstSet [v] este fals pentru v‚rfurile care nu sunt Ónc„ incluse Ón MST
-	  // Actualiza?i cheia numai dac„ graficul [u] [v] este mai mic dec‚t cheia [v]
+		// graficul [u] [v] este diferit de zero numai pentru v√¢rfurile adiacente ale m
+	   // mstSet [v] este fals pentru v√¢rfurile care nu sunt √Ænc√£ incluse √Æn MST
+	  // Actualiza?i cheia numai dac√£ graficul [u] [v] este mai mic dec√¢t cheia [v]
 	}
 	printMST(parent, graph);
 }
@@ -492,6 +492,12 @@ public:
 	void set_Lista(Elfi object);
 	void Ambalare();
 	void afisare();
+	void Ambalare(int nrBaieti,int nrFete)//polimorfism
+	{//determinarea numarul de ambalaje folosite pentru fete si baieti
+		
+		cout << "Baietii-ambalaje albastre" << endl;
+		cout << "Fete-ambalaje roz" << endl;
+	}
 };
 
 Troli::Troli()
@@ -536,6 +542,7 @@ void Troli::Ambalare()
 	cout << "Numarul de ambalaje pentru fete este =" << this->numarAmbalajeFete << endl;
 }
 
+
 //Doamna_Craciun va calcula bugetul extra pentru acadele+carbuni
 //De asemenea ea va avea acces si la traseul lui Mos_Craciun
 class Doamna_Craciun :public Elfi, public Troli
@@ -578,11 +585,15 @@ int main()
 	Doamna_Craciun d;
 	bool open = true;
 	char choice;
+	int nrFete = 0, nrBaieti = 0;
 	//abstractizare
 	elfi.citire_inventar("Inventar.txt");
 	elfi.afisare_dorinte();
 	Mos_Craciun *mos2 = &elfi;
 	mos2->afisare_dorinte();
+
+	troli.Ambalare(nrFete, nrBaieti);
+	
 	while (open)
 	{
 		cout << "***********************************************************************" << endl;
@@ -597,7 +608,7 @@ int main()
 		cout << "4- Afisarea bugetului extra calculat de Doamna_Craciun" << endl;
 		cout << "5- Afisarea lungimii drumului lui Mos_Craciun + orasele parcurse" << endl;
 		cout << "6- Doamna Craciun vrea sa stie traseul lui Mos_Craciun " << endl;
-	    cout << "7- Exit " << endl;
+		cout << "7- Exit " << endl;
 		cout << "Please enter your choice= ";
 		cin >> choice;
 		switch (choice) {
@@ -639,9 +650,7 @@ int main()
 			d.LISTA_ORASE = elfi.Lista_Orase();
 			d.calculareDrum();
 			break;
-		
-		  
-		case '7':
+         case '7':
 			open = false;
 			break;
 		default:
