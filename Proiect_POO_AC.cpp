@@ -125,19 +125,19 @@ void Mos_Craciun::printMST(int parent[], int graph[V][V])
 }
 
 
-// Func?ie pentru construirea ?i tipãrirea arborelui minim de acoperire pentru
-// un grafic reprezentat folosind adiacen?a
+// Func?ie pentru construirea si tipãrirea arborelui minim de acoperire pentru
+// un grafic reprezentat folosind adiacenta
 // reprezentare matricialã
 void Mos_Craciun::primMST(int graph[V][V])
 {
 	int parent[V];// Matrice pentru a stoca arborele minim construit
-	int key[V];// Valori cheie utilizate pentru a alege marginea greutã?ii minime în tãieturã
+	int key[V];// Valori cheie utilizate pentru a alege marginea greutãtii minime în tãieturã
 	bool mstSet[V];//Pentru a reprezenta un set de vârfuri incluse în MST
 
 	for (int i = 0; i < V; i++)
 		key[i] = INT_MAX, mstSet[i] = false;//initializare chei ca infinit
 
-	key[0] = 0;//face?i tasta 0 astfel încât acest vârf sã fie ales ca primul vârf.
+	key[0] = 0;//facem tasta 0 astfel încât acest vârf sã fie ales ca primul vârf.
 	parent[0] = -1;
 
 	for (int count = 0; count < V - 1; count++)
@@ -488,13 +488,13 @@ class Troli
 public:
 	Troli();
 	~Troli();
-	friend class Elfi;
+	//friend class Elfi;
 	void set_Lista(Elfi object);
 	void Ambalare();
 	void afisare();
-	void Ambalare(int nrBaieti,int nrFete)//polimorfism
+	void Ambalare(int nrBaieti, int nrFete)//polimorfism
 	{//determinarea numarul de ambalaje folosite pentru fete si baieti
-		
+
 		cout << "Baietii-ambalaje albastre" << endl;
 		cout << "Fete-ambalaje roz" << endl;
 	}
@@ -593,7 +593,7 @@ int main()
 	mos2->afisare_dorinte();
 
 	troli.Ambalare(nrFete, nrBaieti);
-	
+
 	while (open)
 	{
 		cout << "***********************************************************************" << endl;
@@ -650,7 +650,7 @@ int main()
 			d.LISTA_ORASE = elfi.Lista_Orase();
 			d.calculareDrum();
 			break;
-         case '7':
+		case '7':
 			open = false;
 			break;
 		default:
